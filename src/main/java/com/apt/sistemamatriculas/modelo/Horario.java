@@ -1,35 +1,33 @@
 package com.apt.sistemamatriculas.modelo;
 
-import java.math.*;
 import java.time.*;
 
 import javax.persistence.*;
 
 import org.openxava.annotations.*;
-import org.openxava.calculators.*;
 
 import lombok.*;
 
 @Entity
 @Getter
 @Setter
-public class Matricula {
+public class Horario {
 
+	public enum Jornada {
+		Matutina, Vespertina, Nocturna
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Hidden
-	private int idMatricula;
+	private int idHorario;
 	
+	private LocalDate fechaInicio;
+	private LocalDate fechaFin;
+	
+	@Enumerated(EnumType.STRING)
 	@Required
-	@DefaultValueCalculator(CurrentLocalDateCalculator.class)
-	private LocalDate fecha;
-	
-	@Money
-	private BigDecimal costo;
-	
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@ReferenceView("vistaSimpleEstudiante")
-	private Estudiante estudiante;
+	private Jornada jornada;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@ReferenceView("vistaSimpleCarrera")

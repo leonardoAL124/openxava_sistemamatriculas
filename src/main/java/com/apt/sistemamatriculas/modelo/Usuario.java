@@ -3,6 +3,8 @@ package com.apt.sistemamatriculas.modelo;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
+import org.openxava.annotations.*;
+
 import lombok.*;
 
 @Embeddable
@@ -29,4 +31,7 @@ public class Usuario {
 	@Column(length = 45)
 	private String direccion;
 
+	@File
+	private String foto;
+	
 }

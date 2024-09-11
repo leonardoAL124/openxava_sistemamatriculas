@@ -9,16 +9,18 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-@View(name = "vistaSimpleEmpleado",
-	  members = "idEmpleado")
-public class Empleado {
+@View(name = "vistaSimpleMateria", members = "idMateria, nombre")
+public class Materia {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Hidden
-	private int idEmpleado;
+	private int idMateria;
 	
-	@Embedded
-	Usuario usuario;
+	@Column(length = 45)
+	private String nombre;
+	
+	@TextArea
+	private String descripcion;
 	
 }

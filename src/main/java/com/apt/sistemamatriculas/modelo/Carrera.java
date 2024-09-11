@@ -26,10 +26,4 @@ public class Carrera {
 	
 	private int capacidadAlumnos;
 	
-	@TextArea
-	private String materias;
-	
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@ReferenceView("vistaSimpleProfesor")
-	private Profesor profesor;
 }

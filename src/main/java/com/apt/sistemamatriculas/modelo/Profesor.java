@@ -10,8 +10,12 @@ import lombok.*;
 @Getter
 @Setter
 @View(name = "vistaSimpleProfesor",
-	  members = "idProfesor, foto")
+	  members = "idProfesor")
 public class Profesor {
+	
+	public enum TipoRol {
+		Maestro, Jefe_de_area
+	};
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +25,12 @@ public class Profesor {
 	@Embedded
 	Usuario usuario;
 	
-	@File
-	private String foto;
+	@Enumerated(EnumType.STRING)
+	@Required
+	private TipoRol rol;
+	
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ReferenceView("vistaSimpleCarrera")
+	private Carrera carrera;
+	
 }

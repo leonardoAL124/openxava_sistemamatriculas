@@ -10,7 +10,7 @@ import lombok.*;
 @Getter
 @Setter
 @View(name = "vistaSimpleEstudiante",
-	  members = "idEstudiante, foto")
+	  members = "idEstudiante")
 public class Estudiante {
 	
 	@Id
@@ -20,8 +20,5 @@ public class Estudiante {
 	
 	@Embedded
 	Usuario usuario;
-	
-	@File
-	private String foto;
 
 }
