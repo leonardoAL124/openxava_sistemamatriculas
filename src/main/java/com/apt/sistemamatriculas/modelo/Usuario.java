@@ -13,22 +13,37 @@ import lombok.*;
 public class Usuario {
 	
 	@Column(length = 25)
+	@Size(min = 3, max = 25)
+	@NotBlank
+	@NotNull
 	private String nombre;
 	
 	@Column(length = 25)
+	@Size(min = 3, max = 25)
+	@NotBlank
+	@NotNull
 	private String apellido;
 	
 	@Column(length = 10)
+	@Size(min = 10, max = 10)
+	@NotBlank
+	@NotNull
 	private String cedula;
 	
 	@Column(length = 10)
+	@Size(min = 10, max = 10)
+	@NotBlank
+	@NotNull
 	private String telefono;
 	
 	@Column(length = 45)
-	@Email
+	@Email(message = "Ingrese un email valido")
+	@NotBlank
+	@NotNull
 	private String correo;
 	
 	@Column(length = 45)
+	@Size(min = 10, max = 45)
 	private String direccion;
 
 	@File

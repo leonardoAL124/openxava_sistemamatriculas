@@ -4,6 +4,7 @@ import java.math.*;
 import java.time.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import org.openxava.annotations.*;
 import org.openxava.calculators.*;
@@ -25,6 +26,8 @@ public class Matricula {
 	private LocalDate fecha;
 	
 	@Money
+	@Min(value = 50)
+	@Max(value = 100)
 	private BigDecimal costo;
 	
 	@OneToOne(fetch = FetchType.LAZY, optional = false)

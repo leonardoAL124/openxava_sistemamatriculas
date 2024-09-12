@@ -3,6 +3,7 @@ package com.apt.sistemamatriculas.modelo;
 import java.time.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import org.openxava.annotations.*;
 
@@ -22,10 +23,16 @@ public class Horario {
 	@Hidden
 	private int idHorario;
 	
+	@Stereotype("Date")
+	@NotNull
 	private LocalDate fechaInicio;
+	
+	@Stereotype("Date")
+	@NotNull
 	private LocalDate fechaFin;
 	
 	@Enumerated(EnumType.STRING)
+	@NotNull
 	@Required
 	private Jornada jornada;
 	
